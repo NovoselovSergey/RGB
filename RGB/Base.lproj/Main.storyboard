@@ -59,7 +59,7 @@
                                     <constraint firstAttribute="width" constant="60" id="S7z-qc-4aH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="greenTextFieldAction" destination="BYZ-38-t0r" eventType="editingDidEnd" id="H5c-LO-Z5u"/>
                                 </connections>
@@ -118,7 +118,7 @@
                                     <constraint firstAttribute="width" constant="60" id="bEl-NB-cNb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="blueTextFieldAction" destination="BYZ-38-t0r" eventType="editingDidEnd" id="FPM-t5-yTF"/>
                                 </connections>
@@ -144,6 +144,7 @@
                             </slider>
                         </subviews>
                         <color key="backgroundColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="0.8755891393442623" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="W8g-mX-jnd" firstAttribute="top" secondItem="BGB-Mr-9Ry" secondAttribute="bottom" constant="37" id="1LQ-rx-7HG"/>
                             <constraint firstItem="wCH-s0-Dcw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2f5-aE-pCy"/>
@@ -177,6 +178,9 @@
                             <constraint firstItem="BGB-Mr-9Ry" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="voO-gu-Iuo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="A8h-3w-ydl" appends="YES" id="3cN-Wr-MI2"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="blueLabel" destination="Fie-Wr-H1E" id="Cj7-LY-WLk"/>
@@ -192,6 +196,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="A8h-3w-ydl">
+                    <connections>
+                        <action selector="tap:" destination="BYZ-38-t0r" id="Qbv-aF-REN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
         </scene>

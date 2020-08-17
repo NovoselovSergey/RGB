@@ -24,6 +24,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let toolbar = UIToolbar().ToolbarKeyboard(mySelector: #selector(ViewController.dismissKeyboard))
+        
         //Setup view
         viewLabel.layer.cornerRadius = 10
         viewLabel.backgroundColor = UIColor.init(red: 0.0,
@@ -59,9 +61,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         greenTextField.text = String(format: "%.2f", greenSlider.value)
         blueTextField.text = String(format: "%.2f", blueSlider.value)
         
-        let toolbar = UIToolbar().ToolbarKeyboard(mySelector: #selector(ViewController.dismissKeyboard))
-        
         redTextField.inputAccessoryView = toolbar
+        greenTextField.inputAccessoryView = toolbar
+        blueTextField.inputAccessoryView = toolbar
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
@@ -83,10 +85,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func redTextFieldAction() {
+        redLabel.text = redTextField.text
+        redSlider.value = (redTextField.text! as NSString).floatValue
+        changeColor()
     }
     @IBAction func greenTextFieldAction() {
+        greenLabel.text = greenTextField.text
+        greenSlider.value = (greenTextField.text! as NSString).floatValue
+        changeColor()
     }
     @IBAction func blueTextFieldAction() {
+        blueLabel.text = blueTextField.text
+        blueSlider.value = (blueTextField.text! as NSString).floatValue
+        changeColor()
     }
     
     func changeColor () {
@@ -94,6 +105,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                                  green: CGFloat(greenSlider.value),
                                                  blue: CGFloat(blueSlider.value),
                                                  alpha: 1)
+    }
+    
+    @IBAction func tap(_ sender: Any) {
+        redTextField.resignFirstResponder()
+        greenTextField.resignFirstResponder()
+        blueTextField.resignFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
