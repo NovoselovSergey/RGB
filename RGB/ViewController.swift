@@ -27,10 +27,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Настройка view
+        // view setting
         viewLabel.layer.cornerRadius = 10
         
-        //Настройка слайдеров
+        // slider setting
         redSlider.value = 0
         redSlider.maximumValue = 1
         redSlider.minimumValue = 0
@@ -92,7 +92,7 @@ class ViewController: UIViewController {
         blueTextField.text = string(from: blueSlider)
     }
     
-    // Значения RGB
+    // RGB value
     private func string(from slider: UISlider) -> String {
         return String(format: "%.2f", slider.value)
     }
@@ -100,17 +100,17 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextFieldDelegate {
     
-    // Скрываем клавиатуру нажатием на "Done"
+    // Keyboard hide by press button Done
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    // Скрытие клавиатуры по тапу за пределами Text View
+    // Keyboard hide by press outside text field
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
-        view.endEditing(true) // Скрывает клавиатуру, вызванную для любого объекта
+        view.endEditing(true)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -136,7 +136,7 @@ extension ViewController: UITextFieldDelegate {
 
 extension ViewController {
     
-    // Метод для отображения кнопки "Готово" на цифровой клавиатуре
+    // Show button Done on numeric keyboard
     private func addDoneButtonTo(_ textField: UITextField) {
         
         let keyboardToolbar = UIToolbar()
